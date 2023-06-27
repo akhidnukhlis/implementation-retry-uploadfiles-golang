@@ -20,7 +20,7 @@ func main() {
 	// Upload file
 	err := retryFileUploader.UploadFile(filePath)
 	if err != nil {
-		log.Println("Failed to upload file:", err)
+		log.Fatal("Failed to upload file:", err)
 	}
 
 	fmt.Println("File uploaded successfully")
@@ -28,6 +28,6 @@ func main() {
 	// Close Redis client connection
 	err = fileUploader.Close()
 	if err != nil {
-		log.Println("Error closing Redis client:", err)
+		log.Fatal("Error closing Redis client:", err)
 	}
 }
