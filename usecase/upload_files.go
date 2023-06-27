@@ -66,6 +66,7 @@ func (r *RetryFileUploader) UploadFile(fileName string) error {
 		fmt.Printf("Failed to upload file: %s\n", err)
 
 		if attempts < r.maxAttempts {
+			fmt.Printf("Retrying upload after %v\n", r.retryInterval)
 			time.Sleep(r.retryInterval)
 		}
 	}
